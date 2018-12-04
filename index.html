@@ -1,21 +1,35 @@
 <!doctype html>
-
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-
-  <title>The HTML5 Herald</title>
-  <meta name="description" content="The HTML5 Herald">
-  <meta name="author" content="SitePoint">
-
-  <link rel="stylesheet" href="css/multirange.css">
-
-</head>
-
-<body>
-  <input type="range" multiple name="deps_value[]" value="20,30"/>
-  <br/>
-  <script src="js/multirange.js"></script>
-
-</body>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>FizzBuzz Challenge</title>
+    <!-- Load the QUnit CSS file from CDN - Require to display our tests attractively -->
+    <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.8.0.css">
+    </head>
+  <body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <!-- Load the QUnit Testing Framework from CDN -->
+    <script src="https://code.jquery.com/qunit/qunit-2.8.0.js"></script>
+    <script>
+    function fizzbuzz(number){
+      if(number % 3 === 0 && number % 5 === 0) return `FizzBuzz`;
+      if(number % 3 === 0) return `Fizz`;
+      if(number % 5 === 0) return `Buzz`;
+      return number;
+    }
+    QUnit.test('Test: If number is divisible by 3 return Fizz', function(assert) {
+        assert.equal(fizzbuzz(6), 'Fizz');
+    });
+    QUnit.test('Test: If number is divisible by 5 return Buzz', function(assert) {
+            assert.equal(fizzbuzz(10), 'Buzz');
+    });
+    QUnit.test('Test: If number is divisible by 3 and 5 return FizzBuzz', function(assert) {
+            assert.equal(fizzbuzz(30), 'FizzBuzz');
+    });
+    QUnit.test('Test: If the number not is divisible by 3 and 5 return the number', function(assert) {
+            assert.equal(fizzbuzz(7),7);
+    });
+    </script>
+  </body>
 </html>
